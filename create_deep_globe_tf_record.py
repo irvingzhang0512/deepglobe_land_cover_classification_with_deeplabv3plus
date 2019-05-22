@@ -17,19 +17,19 @@ from utils import dataset_util
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--data_dir', type=str, default='./dataset/',
-                    help='Path to the directory containing the PASCAL VOC data.')
+parser.add_argument('--data_dir', type=str, default='/ssd/zhangyiyang/DeepGlobe/',
+                    help='Path to the directory containing the DeepGlobe data.')
 
-parser.add_argument('--output_path', type=str, default='./dataset',
+parser.add_argument('--output_path', type=str, default='/ssd/zhangyiyang/DeepGlobe/land-tf-records',
                     help='Path to the directory to create TFRecords outputs.')
 
-parser.add_argument('--train_data_list', type=str, default='./dataset/train.txt',
+parser.add_argument('--train_data_list', type=str, default='/ssd/zhangyiyang/DeepGlobe/land-train.txt',
                     help='Path to the file listing the training data.')
 
-parser.add_argument('--valid_data_list', type=str, default='./dataset/val.txt',
+parser.add_argument('--valid_data_list', type=str, default='/ssd/zhangyiyang/DeepGlobe/land-val.txt',
                     help='Path to the file listing the validation data.')
 
-parser.add_argument('--image_data_dir', type=str, default='land_train',
+parser.add_argument('--image_data_dir', type=str, default='land-train',
                     help='The directory containing the image data.')
 
 parser.add_argument('--label_data_dir', type=str, default='onechannel_label',
@@ -147,8 +147,8 @@ def main(unused_argv):
     train_examples = np.delete(file_names, val_)
 
 
-    train_output_path = os.path.join(FLAGS.output_path, 'voc_train.record')
-    val_output_path = os.path.join(FLAGS.output_path, 'voc_val.record')
+    train_output_path = os.path.join(FLAGS.output_path, 'land_train.record')
+    val_output_path = os.path.join(FLAGS.output_path, 'land_val.record')
 
     create_tf_record(train_output_path, image_dir, label_dir, train_examples)
     create_tf_record(val_output_path, image_dir, label_dir, val_examples)

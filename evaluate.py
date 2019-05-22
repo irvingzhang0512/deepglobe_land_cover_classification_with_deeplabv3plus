@@ -17,6 +17,9 @@ from utils import dataset_util
 import numpy as np
 import timeit
 
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"  # see issue #152
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+
 parser = argparse.ArgumentParser()
 
 parser.add_argument('--image_data_dir', type=str, default='dataset/VOCdevkit/VOC2012/JPEGImages',

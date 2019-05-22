@@ -1,12 +1,3 @@
-#!usr/bin/env python  
-# -*- coding:utf-8 _*-
-""" 
-@author:yaoli 
-@file: label2rgb.py.py 
-@time: 2019/01/22
-Test change one_chanel label to 3 channel RGB image.
-"""
-
 import numpy as np
 import cv2
 import scipy.misc
@@ -31,8 +22,10 @@ def annotation2color(input_path, output_path):
     pass
 
 
-one_channel_label_path = 'dataset/onechannel_label'
-test_mask_path = 'dataset/test_mask'
+one_channel_label_path = '/ssd/zhangyiyang/DeepGlobe/onechannel_label'
+test_mask_path = '/ssd/zhangyiyang/DeepGlobe/test_mask'
+if not os.path.exists(test_mask_path):
+    os.makedirs(test_mask_path)
 
 filelist = os.listdir(one_channel_label_path)
 file_names = np.array([file.split('_')[0] for file in filelist if file.endswith('.png')], dtype=object)

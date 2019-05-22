@@ -1,5 +1,3 @@
-"""Utility functions for preprocessing data sets."""
-
 from PIL import Image
 import numpy as np
 import tensorflow as tf

@@ -39,6 +39,26 @@
 </tr>
 </table>
 
+## Tutorials
+### Step 1
++ generate label files by `rb2label.py`.
++ change source dir and target dir.
++ target: modify `xxx_mask.png` to label image.
+
+### Step 2
++ generate train and val samples.
++ use `generate_train_val_examples.py`.
++ target: split dataset to train set and val set.
+
+### Step 3
++ generate train & val tf record files by 'create_pascal_tf_record.py'
++ set all file and directory paths.
++ target: generate tf records for both train set and val set.
+
+### Step 4
++ train model by `train.py`.
+
+
 ## Acknowledgment
 This repo borrows code heavily from
 - [rishizek's repo tensorflow-deeplab-v3-plus](https://github.com/rishizek/tensorflow-deeplab-v3-plus)
