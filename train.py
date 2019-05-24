@@ -20,13 +20,13 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--model_dir', type=str, default='./model',
+parser.add_argument('--model_dir', type=str, default='./model3',
                     help='Base directory for the model.')
 
 parser.add_argument('--clean_model_dir', action='store_true',
                     help='Whether to clean up the model directory if present.')
 
-parser.add_argument('--train_epochs', type=int, default=26,
+parser.add_argument('--train_epochs', type=int, default=375,
                     help='Number of training epochs: '
                          'For 30K iteration with batch size 6, train_epoch = 17.01 (= 30K * 6 / 10,582). '
                          'For 30K iteration with batch size 8, train_epoch = 22.68 (= 30K * 8 / 10,582). '
@@ -218,8 +218,8 @@ def input_fn(is_training, data_dir, batch_size, num_epochs=1):
 
 
 def main(unused_argv):
-    # Using the Winograd non-fused algorithms provides a small performance boost.
-    os.environ['TF_ENABLE_WINOGRAD_NONFUSED'] = '1'
+    # # Using the Winograd non-fused algorithms provides a small performance boost.
+    # os.environ['TF_ENABLE_WINOGRAD_NONFUSED'] = '1'
 
     if FLAGS.clean_model_dir:
         shutil.rmtree(FLAGS.model_dir, ignore_errors=True)
@@ -259,7 +259,7 @@ def main(unused_argv):
         }
 
         logging_hook = tf.train.LoggingTensorHook(
-            tensors=tensors_to_log, every_n_iter=1)
+            tensors=tensors_to_log, every_n_iter=10)
         train_hooks = [logging_hook]
         eval_hooks = None
 

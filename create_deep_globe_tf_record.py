@@ -145,13 +145,15 @@ def main(unused_argv):
     val_ = np.random.choice(len(file_names), int(len(file_names) * 0.1), replace=False)
     val_examples = file_names[val_]
     train_examples = np.delete(file_names, val_)
-
+    all_examples = file_names
 
     train_output_path = os.path.join(FLAGS.output_path, 'land_train.record')
     val_output_path = os.path.join(FLAGS.output_path, 'land_val.record')
+    all_output_path = os.path.join(FLAGS.output_path, 'land_all.record')
 
     create_tf_record(train_output_path, image_dir, label_dir, train_examples)
     create_tf_record(val_output_path, image_dir, label_dir, val_examples)
+    create_tf_record(all_output_path, image_dir, label_dir, all_examples)
 
 
 if __name__ == '__main__':

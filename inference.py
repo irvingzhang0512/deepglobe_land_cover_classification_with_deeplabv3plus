@@ -1,3 +1,5 @@
+"""Run inference a DeepLab v3 model using tf.estimator API."""
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -20,13 +22,13 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--data_dir', type=str, default='/ssd/zhangyiyang/DeepGlobe/land-train',
+parser.add_argument('--data_dir', type=str, default='/ssd/zhangyiyang/DeepGlobe/land-valid',
                     help='The directory containing the image data.')
 
-parser.add_argument('--output_dir', type=str, default='/ssd/zhangyiyang/DeepGlobe/last_result',
+parser.add_argument('--output_dir', type=str, default='/ssd/zhangyiyang/DeepGlobe/land-valid-result',
                     help='Path to the directory to generate the inference results')
 
-parser.add_argument('--model_dir', type=str, default='./model/model.ckpt-1898',
+parser.add_argument('--model_dir', type=str, default='./model',
                     help="Base directory for the model. "
                          "Make sure 'model_checkpoint_path' given in 'checkpoint' file matches "
                          "with checkpoint name.")

@@ -8,11 +8,13 @@ _B_MEAN = 103.94
 
 # colour map
 
-label_colours = [(0, 255, 255),  # 0=Urban land
-                 # 1=Agriculture land, 2=Rangeland, 3=Forest land, 4=Water, 5=Barren land
-                 (255, 255, 0), (255, 0, 255), (0, 255, 0), (0, 0, 255), (255, 255, 255),
-                 # 6=Unknown
-                 (0, 0, 0)]
+label_colours = [(0, 255, 255),  # 0=Urban land，浅蓝色
+                 (255, 255, 0), # 1=Agriculture land，黄色
+                 (255, 0, 255), # 2=Rangeland，玫红色
+                 (0, 255, 0), # 3=Forest land，绿色
+                 (0, 0, 255), # 4=Water，深蓝色
+                 (255, 255, 255), # 5=Barren land，白色
+                 (0, 0, 0)] # 6=Unknown，黑色
 
 
 # def decode_labels(mask, num_images=1, num_classes=21):
